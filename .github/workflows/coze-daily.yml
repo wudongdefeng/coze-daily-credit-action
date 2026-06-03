@@ -29,12 +29,6 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
 
-      - name: Random startup delay
-        run: |
-          delay=$(( RANDOM % 181 ))
-          echo "Sleeping ${delay}s before visiting Coze."
-          sleep "$delay"
-
       - name: Run Coze daily action
         env:
           COZE_STORAGE_STATE_JSON: ${{ secrets.COZE_STORAGE_STATE_JSON }}
